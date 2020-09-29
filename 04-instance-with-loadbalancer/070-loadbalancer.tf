@@ -1,6 +1,9 @@
 # HTTP LOAD BALANCER CONFIGURATION
 #
 # Create loadbalancer
+provider "openstack" {
+  use_octavia = "true"
+}
 resource "openstack_lb_loadbalancer_v2" "http" {
   name          = "elastic_loadbalancer_http"
   vip_subnet_id = openstack_networking_subnet_v2.http.id
@@ -94,3 +97,8 @@ resource "openstack_lb_monitor_v2" "db" {
   depends_on  = [openstack_lb_member_v2.db]
 }
 
+# Creating floating ip form loadblancer
+resource "openstack_networking_floatingip_v2" "floatip_1" {
+  pool    = var.external_network
+  port_id = openstack_lb_loadbalancer_v2.http.vip_port_id
+}

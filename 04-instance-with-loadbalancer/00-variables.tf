@@ -3,19 +3,19 @@
 #### GLANCE
 variable "image" {
   type    = string
-  default = "cirros_raw"
+  default = "Ubuntu-18.04-64bit"
 }
 
 #### NEUTRON
 variable "external_network" {
   type    = string
-  default = "external_network"
+  default = "external_118"
 }
 
 # UUID of external gateway
 variable "external_gateway" {
   type    = string
-  default = "a7b51e90-73fd-4268-bd60-bab1ed2e0474"
+  default = "425c54bb-c4f2-41d6-a63c-a5c87257c929"
 }
 
 variable "dns_ip" {
@@ -26,7 +26,7 @@ variable "dns_ip" {
 #### VM HTTP parameters ####
 variable "flavor_http" {
   type    = string
-  default = "m1.tiny"
+  default = "m1.small"
 }
 
 variable "network_http" {
@@ -47,7 +47,7 @@ variable "http_instance_names" {
 #### VM DB parameters ####
 variable "flavor_db" {
   type    = string
-  default = "m1.tiny"
+  default = "m1.small"
 }
 
 variable "network_db" {
@@ -64,3 +64,4 @@ variable "db_instance_names" {
              "db-instance-2",
              "db-instance-3"]
 }
+
