@@ -55,7 +55,7 @@ resource "openstack_lb_monitor_v2" "http" {
 resource "openstack_lb_loadbalancer_v2" "db" {
   name          = "elastic_loadbalancer_db"
   vip_subnet_id = openstack_networking_subnet_v2.db.id
-  depends_on    = [openstack_compute_instance_v2.db]
+  depends_on    = [openstack_compute_instance_v2.http, openstack_compute_instance_v2.db]
 }
 
 # Create listener
