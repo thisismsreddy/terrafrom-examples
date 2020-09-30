@@ -8,7 +8,6 @@ resource "openstack_compute_instance_v2" "db" {
   image_name  = var.image
   flavor_name = var.flavor_db
   key_pair    = openstack_compute_keypair_v2.user_key.name
-  user_data   = file("dbscripts/installmysql.sh")
   network {
     port = openstack_networking_port_v2.db[each.key].id
   }
