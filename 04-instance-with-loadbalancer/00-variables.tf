@@ -3,7 +3,7 @@
 #### GLANCE
 variable "image" {
   type    = string
-  default = "Ubuntu-18.04-64bit"
+  default = "ubuntu-18-nginx"
 }
 
 #### NEUTRON
